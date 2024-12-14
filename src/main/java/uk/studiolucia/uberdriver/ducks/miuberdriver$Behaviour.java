@@ -1,4 +1,4 @@
-package uk.studiolucia.uberdriver.interfaces;
+package uk.studiolucia.uberdriver.ducks;
 
 
 public interface miuberdriver$Behaviour {
