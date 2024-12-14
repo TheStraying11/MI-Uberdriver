@@ -9,14 +9,10 @@ import org.jetbrains.annotations.Nullable;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import uk.studiolucia.uberdriver.ducks.miuberdriver$Behaviour;
+import uk.studiolucia.uberdriver.ducks.Behaviour;
 
 @Mixin(value = CrafterComponent.class)
 public class CrafterComponentMixin {
-    @Shadow private int efficiencyTicks;
-    @Shadow private long usedEnergy;
-    @Shadow private @Nullable RecipeHolder<MachineRecipe> activeRecipe;
     @Shadow @Final private CrafterComponent.Behavior behavior;
 
     @WrapOperation(
@@ -29,7 +25,7 @@ public class CrafterComponentMixin {
     )
     private int orIsUberdriving(CrafterComponent instance, Operation<Integer> original) {
         int efficiencyTicks = original.call(instance);
-        if (efficiencyTicks == 0 || ((miuberdriver$Behaviour) this.behavior).isUberdriving()) return 0;
+        if (efficiencyTicks == 0 || ((Behaviour) this.behavior).miuberdriver$isUberdriving()) return 0;
 
         return efficiencyTicks;
     }
