@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "Q": {
+      "item": "modern_industrialization:quantum_circuit"
+    },
+    "O": {
+      "item": "modern_industrialization:overdrive_module"
+    },
+    "S": {
+      "item": "modern_industrialization:superconductor_ingot"
+    }
+  },
+  "pattern": [
+    "QOQ",
+    "OSO",
+    "SOS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "miuberdriver:uberdrive_module"
+  }
+}

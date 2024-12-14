@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "miuberdriver:item/uberdrive_module"
+  }
+}
