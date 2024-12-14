@@ -23,7 +23,7 @@ public class SlotTypeMixin {
     }
 */
 
-    @WrapOperation(method = "<clinit>", at = @At(value = "INVOKE", target="Laztech/modern_industrialization/machines/guicomponents/SlotPanel$SlotType;<init>", ordinal = 3))
+    @WrapOperation(method = "<clinit>", at = @At(value = "INVOKE", target="aztech/modern_industrialization/machines/guicomponents/SlotPanel$SlotType.<init> (Ljava/lang/String;ILaztech/modern_industrialization/inventory/SlotGroup;ILjava/util/function/Predicate;IILaztech/modern_industrialization/MIText;)V", ordinal = 3))
     private static SlotType SlotTypeWrap(SlotGroup group, int slotLimit, Predicate<ItemStack> insertionChecker, int u, int v, MIText tooltip, Operation<SlotType> original) {
         return original.call(group, slotLimit, insertionChecker.or(stack -> stack.is(ModItems.UberdriveModule)), u, v, tooltip);
     }
