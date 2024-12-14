@@ -15,6 +15,8 @@ import uk.studiolucia.uberdriver.ducks.Behaviour;
 public class CrafterComponentMixin {
     @Shadow @Final private CrafterComponent.Behavior behavior;
 
+    @Shadow private @Nullable RecipeHolder<MachineRecipe> activeRecipe;
+
     @WrapOperation(
         method = "clearActiveRecipeIfPossible",
         at = @At(
@@ -28,5 +30,22 @@ public class CrafterComponentMixin {
         if (efficiencyTicks == 0 || ((Behaviour) this.behavior).miuberdriver$isUberdriving()) return 0;
 
         return efficiencyTicks;
+    }
+
+    @WrapOperation(
+        method = "getRecipes",
+        at = @At(
+            value = "FIELD",
+            target = "aztech/modern_industrialization/machines/components/CrafterComponent.efficiencyTicks : I",
+            opcode = Opcodes.GETFIELD
+        )
+    )
+    private int wrapEfficiencyTicks(CrafterComponent instance, Operation<Integer> original) {
+        if (activeRecipe == null) {
+            return 0;
+        }
+        else {
+            return original.call(instance);
+        }
     }
 }
