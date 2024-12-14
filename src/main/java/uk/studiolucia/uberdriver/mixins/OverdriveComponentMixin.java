@@ -17,9 +17,9 @@ public class OverdriveComponentMixin {
     @Shadow
     private ItemStack overdriveModule;
 
-    //public boolean shouldUberdrive() {
-    //    return overdriveModule.is(ModItems.UberdriveModule);
-    //}
+    public boolean shouldUberdrive() {
+        return overdriveModule.is(ModItems.UberdriveModule);
+    }
 
     @WrapOperation(method = "onUse", at = @At(value = "INVOKE", target = "Laztech/modern_industrialization/definition/ItemDefinition;is(Lnet/minecraft/world/item/ItemStack;)Z"))
     private boolean onUseWrap(ItemDefinition<Item> OVERDRIVE_MODULE, ItemStack stackInHand, Operation<Boolean> original) {
