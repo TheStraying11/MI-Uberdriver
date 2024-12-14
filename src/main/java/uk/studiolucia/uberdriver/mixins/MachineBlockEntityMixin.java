@@ -12,7 +12,7 @@ import uk.studiolucia.uberdriver.ducks.ShouldUberdrive;
 
 @Mixin({ElectricBlastFurnaceBlockEntity.class, ElectricCraftingMachineBlockEntity.class, ElectricCraftingMultiblockBlockEntity.class})
 public class MachineBlockEntityMixin implements Behaviour {
-    @Shadow
+    @Shadow(remap = false)
     private @Final OverdriveComponent overdrive;
 
     @Override
